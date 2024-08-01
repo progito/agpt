@@ -1,0 +1,169 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(157, 157, 157);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.chat-window {
+    flex-grow: 1;
+    padding: 70px 10px 60px; /* Adjusted for fixed header and footer */
+    overflow-y: auto;
+    background-color: #f7f7f8;
+    box-sizing: border-box;
+    height: calc(100vh - 70px - 60px); /* Adjusted for fixed header and footer */
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    max-width: 60%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.chat-message.user {
+    align-self: flex-start;
+    background-color: #e1ffc7;
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: 50%;
+}
+
+.chat-message.bot {
+    align-self: flex-end;
+    background-color: #e5e5ea;
+    color: #333;
+    text-align: left;
+    margin-right: 50%;
+}
+
+.chat-message .icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #ddd;
+    color: #fff;
+    font-size: 14px;
+}
+
+.chat-message.user .icon {
+    background-color: #4caf50;
+}
+
+.chat-message.bot .icon {
+    background-color: #2196f3;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px 5px;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    position: sticky;
+    border-radius: 30px;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+    margin-bottom: 20px;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
+    resize: none;
+    height: 40px;
+    overflow: hidden;
+}
+
+#send-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#send-button:hover {
+    background-color: #000;
+}
+
+/* Добавьте этот стиль в ваш CSS */
+.editable {
+    cursor: pointer;
+    border: 1px dashed #aaa;
+}
+
+.editable textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.chat-message .message-text pre {
+    background-color: #f5f2f0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+.chat-message .message-text code {
+    font-family: monospace;
+}
